@@ -1,0 +1,2 @@
+lien symbolique dans /usr/lib pour pam_fprintd.so
+lien symbolique dans /usr/local/etc/dbus-1/system.d/ pour net.reactivated.Fprint.conf qui est dans /usr/local/etc/fprintd/dbus-1/system.d/
