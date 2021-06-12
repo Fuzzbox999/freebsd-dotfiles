@@ -67,10 +67,11 @@ static const struct arg args[] = {
 	/* function format          argument */
 	{ cpu_perc, "  %s%% | ", NULL },
 	{ run_command, "  %s | ", "sysctl dev.cpu|grep temperature|awk 'NR==1{print $2}'" },
+	{ run_command, "  %s  | ", "/home/fuzzbox/.local/bin/sl_pkg" },
 	{ disk_free, "  %s | ", "/" },
-	{ battery_perc, "  %s%% | ", "BAT0" },
+	{ run_command, "  %s  | ", "/home/fuzzbox/.local/bin/sl_bat" },
 	{ run_command, "  %s%% | ", "backlight| awk '{print $2}'" },
 	{ vol_perc, "  %s%% | ", "/dev/mixer" },
 	{ wifi_essid, "  %s | ", "wlan0" },
-	{ datetime, "%s ",           "%e %b  %H:%M" },
+	{ run_command, " %s ", "date '+%a %d %b - %H:%M'" },
 };

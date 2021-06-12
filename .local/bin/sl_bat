@@ -1,0 +1,32 @@
+#!/bin/sh
+
+LIMIT=30
+
+AC=$(apm|awk 'NR==3 {print $4}'|cut -d"-" -f1)
+CHARGE=$(apm|awk 'NR==5 {print $4}'|cut -d% -f1)
+
+battery() {
+
+	# is it on AC or on battery ?
+	if [ $AC == "on" ]; then
+                         STATUS=""
+                 else
+                         STATUS=" "
+        fi
+
+	# Different colors if on AC / on battery / on < 30% battery
+	if [ $STATUS = "" ]; then
+		echo "$STATUS $CHARGE%^d^"
+		exit 0
+	else
+		if [ "$CHARGE" -lt $LIMIT ]; then
+			echo "^c#ff0000^$STATUS $CHARGE% ^d^"
+		else
+			echo "$STATUS $CHARGE%"
+		fi
+
+	fi
+}
+
+echo "$(battery)"
+
