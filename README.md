@@ -6,4 +6,4 @@
 - [dmenu](https://tools.suckless.org/dmenu/)
 - suckless [terminal](https://st.suckless.org/)
 - [Pywal](https://github.com/dylanaraps/pywal) and [wpgtk](https://github.com/BigfootN/wpgtk)
-- My [personnal webpage] (https://fuzzbox.pagesperso-orange.fr/) about FreeBSD
+- My [personnal webpage](https://fuzzbox.pagesperso-orange.fr/) about FreeBSD
