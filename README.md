@@ -9,4 +9,4 @@
 - My [personal webpage](https://fuzzbox.pagesperso-orange.fr/) about FreeBSD
 
 
-![Screenie](https://raw.githubusercontent.com/Fuzzbox999/dotbsd/master/Images/Screenshots/keepcalm.png)
+![Screenie](https://raw.githubusercontent.com/Fuzzbox999/freebsd-dotfiles/master/Images/Screenshots/keepcalm.png)
