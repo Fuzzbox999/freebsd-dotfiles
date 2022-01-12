@@ -42,10 +42,11 @@ dwm.user_bh: 28
 dwm.mfact: 0.55
 dwm.nmaster: 1
 dwm.resizehints: 0
+dwm.lockfullscreen: 0
 dwm.attachdirection: 0 
 !0 default, 1 above, 2 aside, 3 below, 4 bottom, 5 top
 
-*.alpha: 0.8
+*.alpha: 0.7
 
 !st.borderpx: 100
 st.cwscale: 1.01
