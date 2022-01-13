@@ -13,21 +13,23 @@ source ~/.cache/wal/colors-tty.sh
 
 POWERLEVEL9K_INSTANT_PROMPT=off
 
-echo "\n"
-fortune freebsd-tips && echo "\n"
+# echo "\n"
+# fortune freebsd-tips && echo "\n"
 
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin:~/.go/bin
 export EDITOR=nvim
 export LANG='fr_FR.UTF-8'
-#export NNTPSERVER='news.eternal-september.org'
-#alias slrn='slrn -i ~/.config/slrn/slrn.rc'
+export GOPATH=$HOME/.go
 alias config='/usr/local/bin/git --git-dir=$HOME/.cache/freebsd-dotfiles --work-tree=$HOME'
 alias cl='clear'
 alias ccl='cd && clear'
 alias x='startx'
+alias LL='ls -lhF --group-directories-first'
+alias LLA='ls -alhF --group-directories-first'
 alias dragon='dragon-drag-and-drop'
 alias mem='\top -atSzo res -s 3'
-alias pac='sudo pkg'
+alias update='doas pkg -d update'
+alias upgrade='doas pkg -d upgrade && check_upgrades' 
 
 setopt autocd              # change directory just by typing its name
 #setopt correct            # auto correct mistakes
@@ -209,14 +211,10 @@ precmd() {
 if [ -x /usr/local/bin/gdircolors ]; then
     test -r ~/.dircolors && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-    alias diff='diff --color=auto'
-    alias ip='ip --color=auto'
 
 # export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 # export LESS=' -R '
@@ -260,3 +258,12 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.fzf/shell/completion.zsh
 source ~/.fzf/shell/key-bindings.zsh
+
+
+#  startx if it isn't already running
+XPID=`/usr/bin/pgrep Xorg`
+if  [[ -z $XPID ]]
+then
+  /usr/local/bin/startx
+  logout
+fi
